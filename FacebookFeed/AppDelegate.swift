@@ -12,8 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let feedViewController = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
     let navigationController = UINavigationController(rootViewController: feedViewController)
     window?.rootViewController = navigationController
-    
+    setupNavigationBarAppearance()
     return true
+  }
+  
+  fileprivate func setupNavigationBarAppearance() {
+    UINavigationBar.appearance().barTintColor = UIColor.navigationBarTintColor
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor]
   }
 }
 
