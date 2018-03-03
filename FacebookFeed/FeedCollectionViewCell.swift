@@ -5,10 +5,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
   let nameLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 2
-    
-    
     label.attributedText = labelText
-    label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
@@ -37,7 +34,21 @@ class FeedCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.image = UIImage(named: "zuckprofile")
-    imageView.translatesAutoresizingMaskIntoConstraints = false
+    return imageView
+  }()
+  
+  let statusTextView: UITextView = {
+    let textView = UITextView()
+    textView.text = "This is my first status on Facebook"
+    textView.font = UIFont.systemFont(ofSize: 14)
+    return textView
+  }()
+  
+  let statusImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFill
+    imageView.image = UIImage(named: "zuckdog")
+    imageView.clipsToBounds = true
     return imageView
   }()
   
@@ -55,8 +66,12 @@ class FeedCollectionViewCell: UICollectionViewCell {
     backgroundColor = UIColor.white
     addSubview(nameLabel)
     addSubview(profileImageView)
+    addSubview(statusTextView)
+    addSubview(statusImageView)
     addConstraintWithVisualFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
-    addConstraintWithVisualFormat(format: "V:|-8-[v0(44)]", views: profileImageView)
-    addConstraintWithVisualFormat(format: "V:|[v0]|", views: nameLabel)
+    addConstraintWithVisualFormat(format: "V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]|", views: profileImageView, statusTextView, statusImageView)
+    addConstraintWithVisualFormat(format: "V:|-12-[v0]", views: nameLabel)
+    addConstraintWithVisualFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
+    addConstraintWithVisualFormat(format: "H:|[v0]|", views: statusImageView)
   }
 }
