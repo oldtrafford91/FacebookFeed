@@ -12,6 +12,7 @@
 		E13AD47B214A6FB700AD4C3D /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD47A214A6FB700AD4C3D /* FeedCollectionViewCell.swift */; };
 		E13AD47D214A708900AD4C3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD47C214A708900AD4C3D /* Constants.swift */; };
 		E13AD47F214AB3CF00AD4C3D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD47E214AB3CF00AD4C3D /* UIView+Extension.swift */; };
+		E1A63936214C223F00FC8C5B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A63935214C223F00FC8C5B /* UIButton+Extension.swift */; };
 		E1D4FE6A2149F42E0091AF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FE692149F42E0091AF50 /* AppDelegate.swift */; };
 		E1D4FE6C2149F42E0091AF50 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FE6B2149F42E0091AF50 /* FeedViewController.swift */; };
 		E1D4FE712149F42F0091AF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D4FE702149F42F0091AF50 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		E13AD47A214A6FB700AD4C3D /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		E13AD47C214A708900AD4C3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E13AD47E214AB3CF00AD4C3D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E1A63935214C223F00FC8C5B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E1D4FE662149F42E0091AF50 /* FacebookFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D4FE692149F42E0091AF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D4FE6B2149F42E0091AF50 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 				E13AD476214A695900AD4C3D /* UIColor+Extension.swift */,
 				E13AD478214A6D1B00AD4C3D /* UINavigationController+Extension.swift */,
 				E13AD47E214AB3CF00AD4C3D /* UIView+Extension.swift */,
+				E1A63935214C223F00FC8C5B /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				E1D4FE6C2149F42E0091AF50 /* FeedViewController.swift in Sources */,
 				E13AD47B214A6FB700AD4C3D /* FeedCollectionViewCell.swift in Sources */,
 				E1D4FE6A2149F42E0091AF50 /* AppDelegate.swift in Sources */,
+				E1A63936214C223F00FC8C5B /* UIButton+Extension.swift in Sources */,
 				E13AD479214A6D1B00AD4C3D /* UINavigationController+Extension.swift in Sources */,
 				E13AD47D214A708900AD4C3D /* Constants.swift in Sources */,
 			);
