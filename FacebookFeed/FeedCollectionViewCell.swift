@@ -5,29 +5,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
   let nameLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 2
-    label.attributedText = labelText
+    label.attributedText = makeLabelText()
     return label
-  }()
-  
-  private static let labelText: NSAttributedString = {
-    let attributedString = NSMutableAttributedString(string: "Mark Zuckerberg",
-                                                     attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
-    let secondLine = NSAttributedString(string: "\nDecember 18 - Sanfrancisco   ",
-                                        attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
-                                                     NSAttributedString.Key.foregroundColor: UIColor.secondLineAttributedTextColor
-      ])
-    attributedString.append(secondLine)
-    
-    let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.lineSpacing = 4
-    attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, attributedString.string.count))
-    
-    let attachment = NSTextAttachment()
-    attachment.image = UIImage(named: "globe_small")
-    attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
-    attributedString.append(NSAttributedString(attachment: attachment))
-    
-    return attributedString
   }()
   
   let profileImageView: UIImageView = {
@@ -74,36 +53,12 @@ class FeedCollectionViewCell: UICollectionViewCell {
     return stackview
   }()
   
-  let likeButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("Like", for: .normal)
-    button.setTitleColor(UIColor.rgb(red: 143, green: 150, blue: 163), for: .normal)
-    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-    button.changeButtonTitleAndImageSpacing(spacing: 8)
-    button.setImage(UIImage(named: "like"), for: .normal)
-    return button
-  }()
+  let likeButton = buttonForTitle(title: "Like", imageName: "like")
   
-  let commentButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("Comment", for: .normal)
-    button.setTitleColor(UIColor.rgb(red: 143, green: 150, blue: 163), for: .normal)
-    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-    button.changeButtonTitleAndImageSpacing(spacing: 8)
-    button.setImage(UIImage(named: "comment"), for: .normal)
-    return button
-  }()
+  let commentButton = buttonForTitle(title: "Comment", imageName: "comment")
   
-  let shareButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("Share", for: .normal)
-    button.setTitleColor(UIColor.rgb(red: 143, green: 150, blue: 163), for: .normal)
-    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-    button.changeButtonTitleAndImageSpacing(spacing: 8)
-    button.setImage(UIImage(named: "share"), for: .normal)
-
-    return button
-  }()
+  let shareButton = buttonForTitle(title: "Share", imageName: "share")
+  
   // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -135,5 +90,37 @@ class FeedCollectionViewCell: UICollectionViewCell {
     addConstraintWithVisualFormat(format: "H:|-12-[v0]-12-|", views: separator)
     addConstraintWithVisualFormat(format: "H:|-12-[v0]-12-|", views: buttonStackView)
     addConstraintWithVisualFormat(format: "V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]-8-[v3(24)]-8-[v4(0.4)]-8-[v5(44)]-8-|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, separator, buttonStackView)
+  }
+  
+  // MARK: - Private Helpers
+  private static func buttonForTitle(title: String, imageName: String) -> UIButton {
+    let button = UIButton()
+    button.setTitle(title, for: .normal)
+    button.setTitleColor(UIColor.rgb(red: 143, green: 150, blue: 163), for: .normal)
+    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+    button.changeButtonTitleAndImageSpacing(spacing: 8)
+    button.setImage(UIImage(named: imageName), for: .normal)
+    return button
+  }
+  
+  private static func makeLabelText() -> NSAttributedString {
+    let attributedString = NSMutableAttributedString(string: "Mark Zuckerberg",
+                                                     attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
+    let secondLine = NSAttributedString(string: "\nDecember 18 - Sanfrancisco   ",
+                                        attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                                                     NSAttributedString.Key.foregroundColor: UIColor.secondLineAttributedTextColor
+      ])
+    attributedString.append(secondLine)
+    
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = 4
+    attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, attributedString.string.count))
+    
+    let attachment = NSTextAttachment()
+    attachment.image = UIImage(named: "globe_small")
+    attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
+    attributedString.append(NSAttributedString(attachment: attachment))
+    
+    return attributedString
   }
 }
