@@ -1,6 +1,9 @@
 import UIKit
 
 class FeedViewController: UICollectionViewController {
+  // MARK: - Model
+  let posts = FeedPost.allPost()
+  
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,12 +26,13 @@ class FeedViewController: UICollectionViewController {
 // MARK: - UICollectionViewDataSource
 extension FeedViewController {
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 3
+    return posts.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.feedCollectionViewCellIdentifier, for: indexPath) as! FeedCollectionViewCell
-
+    let feedPost = posts[indexPath.row]
+    feedCell.model = FeedCollectionViewCell.Model(feedPost: feedPost)
     return feedCell
   }
 }

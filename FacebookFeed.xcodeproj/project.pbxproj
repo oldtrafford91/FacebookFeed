@@ -14,6 +14,7 @@
 		E13AD47F214AB3CF00AD4C3D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD47E214AB3CF00AD4C3D /* UIView+Extension.swift */; };
 		E1A63936214C223F00FC8C5B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A63935214C223F00FC8C5B /* UIButton+Extension.swift */; };
 		E1A63938214C99F400FC8C5B /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A63937214C99F400FC8C5B /* FeedPost.swift */; };
+		E1A6393A214CB3F700FC8C5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A63939214CB3F700FC8C5B /* User.swift */; };
 		E1D4FE6A2149F42E0091AF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FE692149F42E0091AF50 /* AppDelegate.swift */; };
 		E1D4FE6C2149F42E0091AF50 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FE6B2149F42E0091AF50 /* FeedViewController.swift */; };
 		E1D4FE712149F42F0091AF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D4FE702149F42F0091AF50 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		E13AD47E214AB3CF00AD4C3D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E1A63935214C223F00FC8C5B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E1A63937214C99F400FC8C5B /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
+		E1A63939214CB3F700FC8C5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1D4FE662149F42E0091AF50 /* FacebookFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D4FE692149F42E0091AF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D4FE6B2149F42E0091AF50 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				E1D4FE722149F42F0091AF50 /* LaunchScreen.storyboard */,
 				E1D4FE752149F42F0091AF50 /* Info.plist */,
 				E1A63937214C99F400FC8C5B /* FeedPost.swift */,
+				E1A63939214CB3F700FC8C5B /* User.swift */,
 			);
 			path = FacebookFeed;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				E1A63936214C223F00FC8C5B /* UIButton+Extension.swift in Sources */,
 				E1A63938214C99F400FC8C5B /* FeedPost.swift in Sources */,
 				E13AD479214A6D1B00AD4C3D /* UINavigationController+Extension.swift in Sources */,
+				E1A6393A214CB3F700FC8C5B /* User.swift in Sources */,
 				E13AD47D214A708900AD4C3D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

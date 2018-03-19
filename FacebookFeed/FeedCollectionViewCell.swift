@@ -2,23 +2,39 @@ import UIKit
 
 class FeedCollectionViewCell: UICollectionViewCell {
   // MARK: - Properties
+  
+  // MARK: - Model
+  var model: Model? {
+    didSet {
+      guard let model = model else {
+        return
+      }
+      nameLabel.attributedText = model.nameLabelText
+      if let image = model.image {
+        statusImageView.image = UIImage(named: image)
+      }
+      statusTextView.text = model.status
+      profileImageView.image = UIImage(named: model.profileImage)
+    }
+  }
+  
+  // MARK: - Subviews
   let nameLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 2
-    label.attributedText = makeLabelText()
     return label
   }()
   
   let profileImageView: UIImageView = {
     let imageView = UIImageView()
+    imageView.layer.cornerRadius = 22
+    imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFit
-    imageView.image = UIImage(named: "zuckprofile")
     return imageView
   }()
   
   let statusTextView: UITextView = {
     let textView = UITextView()
-    textView.text = "This is my first status on Facebook"
     textView.font = UIFont.systemFont(ofSize: 14)
     return textView
   }()
@@ -26,7 +42,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
   let statusImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
-    imageView.image = UIImage(named: "zuckdog")
     imageView.layer.masksToBounds = true
     return imageView
   }()
@@ -102,25 +117,46 @@ class FeedCollectionViewCell: UICollectionViewCell {
     button.setImage(UIImage(named: imageName), for: .normal)
     return button
   }
+}
+
+// MARK: - FeedCollectionViewCell View Model
+extension FeedCollectionViewCell {
   
-  private static func makeLabelText() -> NSAttributedString {
-    let attributedString = NSMutableAttributedString(string: "Mark Zuckerberg",
-                                                     attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
-    let secondLine = NSAttributedString(string: "\nDecember 18 - Sanfrancisco   ",
-                                        attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
-                                                     NSAttributedString.Key.foregroundColor: UIColor.secondLineAttributedTextColor
-      ])
-    attributedString.append(secondLine)
+  struct Model {
+    var nameLabelText: NSAttributedString {
+      let attributedString = NSMutableAttributedString(string: name,
+                                                       attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
+      let secondLine = NSAttributedString(string: "\nDecember 18 - Sanfrancisco   ",
+                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                                                       NSAttributedString.Key.foregroundColor: UIColor.secondLineAttributedTextColor
+        ])
+      attributedString.append(secondLine)
+      
+      let paragraphStyle = NSMutableParagraphStyle()
+      paragraphStyle.lineSpacing = 4
+      attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, attributedString.string.count))
+      
+      let attachment = NSTextAttachment()
+      attachment.image = UIImage(named: "globe_small")
+      attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
+      attributedString.append(NSAttributedString(attachment: attachment))
+      
+      return attributedString
+    }
     
-    let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.lineSpacing = 4
-    attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, attributedString.string.count))
+    let profileImage: String
+    let name: String
+    var image: String?
+    var status: String?
     
-    let attachment = NSTextAttachment()
-    attachment.image = UIImage(named: "globe_small")
-    attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
-    attributedString.append(NSAttributedString(attachment: attachment))
-    
-    return attributedString
+    init(feedPost: FeedPost) {
+      self.name = feedPost.user.name
+      self.profileImage = feedPost.user.profileImage
+      if let image = feedPost.image, let status = feedPost.status {
+        self.image = image
+        self.status = status
+      }
+    }
   }
 }
+
